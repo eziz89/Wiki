@@ -13,8 +13,8 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence,
-            'content' => $this->faker->paragraphs(3, true),
+            'title' => fake()->sentence,
+            'content' => fake()->paragraphs(3, true),
             'user_id' => User::factory(),
         ];
     }

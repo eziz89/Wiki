@@ -14,7 +14,7 @@ class RevisionFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->paragraphs(3, true),
+            'content' => fake()->paragraphs(3, true),
             'article_id' => Article::factory(),
             'user_id' => User::factory(),
         ];
