@@ -12,4 +12,3 @@ class TagSeeder extends Seeder
         Tag::factory()->count(20)->create();
     }
 }
-
