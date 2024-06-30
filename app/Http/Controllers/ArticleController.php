@@ -9,7 +9,6 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $articles = Article::paginate(10);
         return response()->json($articles);
     }
@@ -22,7 +21,6 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $article = Article::findOrFail($id);
         return response()->json($article);
     }
@@ -42,14 +40,12 @@ class ArticleController extends Controller
 
     public function titles()
     {
-        // Using pluck()
         $articleTitles = Article::pluck('title');
         return response()->json($articleTitles);
     }
 
     public function published()
     {
-        // Using get() with constraints
         $articles = Article::where('status', 'published')->get();
         return response()->json($articles);
     }

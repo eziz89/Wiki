@@ -9,7 +9,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $users = User::paginate(10);
         return response()->json($users);
     }
@@ -22,7 +21,6 @@ class UserController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $user = User::findOrFail($id);
         return response()->json($user);
     }
@@ -42,14 +40,12 @@ class UserController extends Controller
 
     public function emails()
     {
-        // Using pluck()
         $userEmails = User::pluck('email');
         return response()->json($userEmails);
     }
 
     public function active()
     {
-        // Using get() with constraints
         $activeUsers = User::where('active', true)->get();
         return response()->json($activeUsers);
     }

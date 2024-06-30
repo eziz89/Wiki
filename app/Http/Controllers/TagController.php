@@ -9,7 +9,6 @@ class TagController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $tags = Tag::paginate(10);
         return response()->json($tags);
     }
@@ -22,7 +21,6 @@ class TagController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $tag = Tag::findOrFail($id);
         return response()->json($tag);
     }
@@ -42,14 +40,12 @@ class TagController extends Controller
 
     public function names()
     {
-        // Using pluck()
         $tagNames = Tag::pluck('name');
         return response()->json($tagNames);
     }
 
     public function popular()
     {
-        // Using get() with constraints
         $tags = Tag::where('popularity', '>', 100)->get();
         return response()->json($tags);
     }

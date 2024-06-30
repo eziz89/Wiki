@@ -9,7 +9,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $categories = Category::paginate(10);
         return response()->json($categories);
     }
@@ -22,7 +21,6 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $category = Category::findOrFail($id);
         return response()->json($category);
     }
@@ -42,14 +40,12 @@ class CategoryController extends Controller
 
     public function names()
     {
-        // Using pluck()
         $categoryNames = Category::pluck('name');
         return response()->json($categoryNames);
     }
 
     public function active()
     {
-        // Using get() with constraints
         $categories = Category::where('active', true)->get();
         return response()->json($categories);
     }

@@ -9,7 +9,6 @@ class GroupMemberController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $groupMembers = GroupMember::paginate(10);
         return response()->json($groupMembers);
     }
@@ -22,7 +21,6 @@ class GroupMemberController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $groupMember = GroupMember::findOrFail($id);
         return response()->json($groupMember);
     }
@@ -42,7 +40,6 @@ class GroupMemberController extends Controller
 
     public function byGroup($groupId)
     {
-        // Using get() with constraints
         $members = GroupMember::where('group_id', $groupId)->get();
         return response()->json($members);
     }

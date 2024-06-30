@@ -9,7 +9,6 @@ class GroupController extends Controller
 {
     public function index()
     {
-        // Using paginate()
         $groups = Group::paginate(10);
         return response()->json($groups);
     }
@@ -22,7 +21,6 @@ class GroupController extends Controller
 
     public function show($id)
     {
-        // Using findOrFail()
         $group = Group::findOrFail($id);
         return response()->json($group);
     }
@@ -42,14 +40,12 @@ class GroupController extends Controller
 
     public function names()
     {
-        // Using pluck()
         $groupNames = Group::pluck('name');
         return response()->json($groupNames);
     }
 
     public function active()
     {
-        // Using get() with constraints
         $activeGroups = Group::where('active', true)->get();
         return response()->json($activeGroups);
     }
