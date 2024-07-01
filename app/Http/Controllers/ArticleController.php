@@ -10,7 +10,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::paginate(10);
-        return response()->json($articles);
+        return view('articles.index', compact('articles'));
     }
 
     public function store(Request $request)
@@ -22,7 +22,7 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::findOrFail($id);
-        return response()->json($article);
+        return view('articles.show', compact('article'));
     }
 
     public function update(Request $request, $id)
