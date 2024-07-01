@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        return response()->json($users);
+        return view('users.index', compact('users'));
     }
 
     public function store(Request $request)
@@ -22,7 +22,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return response()->json($user);
+        return view('users.show', compact('user'));
     }
 
     public function update(Request $request, $id)
