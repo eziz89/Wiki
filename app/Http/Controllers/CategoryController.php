@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(10);
-        return response()->json($categories);
+        return view('categories.index', compact('categories'));
     }
 
     public function store(Request $request)
